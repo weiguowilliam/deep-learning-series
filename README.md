@@ -8,3 +8,7 @@ code for the series of deep learning lesson.
 [Modern Deep Learning in Python](https://www.udemy.com/data-science-deep-learning-in-theano-tensorflow/learn/v4/content)
 
 [Deep Learning: Convolutional Neural Networks in Python](https://www.udemy.com/deep-learning-convolutional-neural-networks-theano-tensorflow/learn/v4/content)
+
+[Deep Learning: Recurrent Neural Networks in Python](https://www.udemy.com/deep-learning-recurrent-neural-networks-in-python/) 
+
+[Deep Learning: GANs and Variational Autoencoders](https://www.udemy.com/deep-learning-gans-and-variational-autoencoders/) 
