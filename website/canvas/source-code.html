@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="description" content="HTML5 canvas实现的静态循环滚动播放弹幕 » 张鑫旭-鑫空间-鑫生活" />
+<meta name="description" content="张鑫旭web前端学习实例页面 HTML5 canvas实现的静态循环滚动播放弹幕" />
+<meta name="keywords" content="html5, canvas, 弹幕, 静态数据" />
+<meta name="author" content="张鑫旭, zhangxinxu" />
+<title>HTML5 canvas实现的静态循环滚动播放弹幕 » 张鑫旭-鑫空间-鑫生活</title>
+<link rel="stylesheet" href="../css/demo.css">
+<link rel="stylesheet" href="../css/hl.css">
+<style>
+.video-x {
+	position: relative;
+	width: 640px;
+	margin: auto;
+}
+
+.canvas-barrage {
+	position: absolute;
+	width: 640px;
+	height: 360px;
+}
+.video-placeholder {
+	height: 360px;
+	background-color: #000;
+	animation: bgColor 10s infinite alternate;
+}
+@keyframes bgColor {
+	25% {
+		background-color: darkred;
+	}
+	50% {
+		background-color: darkgreen;
+	}
+	75% {
+		background-color: darkblue;
+	}
+	100% {
+		background-color: sliver;
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="header">
+	<a href="/" class="logo" title="回到鑫空间-鑫生活首页">
+    	<img src="/php/image/zxx_home_logo.png" border="0">
+    </a>
+</div>
+<div id="main">
+	<h1>HTML5 canvas实现的静态循环滚动播放弹幕实例页面</h1>
+    <div id="body" class="light">
+    	<div id="content" class="show">
+        	<h3>展示</h3>
+            <div class="article_new"><a href="http://www.zhangxinxu.com/wordpress/?p=6386">回到相关文章 »</a></div>
+            <div class="demo">
+            	<div class="video-x">
+                	<canvas id="canvasBarrage" class="canvas-barrage"></canvas>
+                	<div class="video-placeholder"></div>
+                </div>
+            </div>
+            <h3>代码</h3>
+            <h5>HTML代码：</h5>
+            <pre name="code" class="html">&lt;canvas id="canvasBarrage"&gt;&lt;/canvas&gt;</pre>
+            <h5>JS代码：</h5>
+            <pre name="code" class="js">
+// 弹幕数据
+var dataBarrage = [{
+    value: '使用的是静态死数据',
+    color: 'blue',
+    range: [0, 0.5]
+}, {
+    value: '随机循环播放',
+    color: 'blue',
+    range: [0, 0.6]
+}, {
+    value: '可以控制区域和垂直分布范围',
+    color: 'blue',
+    range: [0, 0.5]
+}, {
+    value: '字体大小和速度在方法内设置',
+    color: 'black',
+    range: [0.1, 1]
+}, {
+    value: '适合用在一些静态页面上',
+    color: 'black',
+    range: [0.2, 1]
+}, {
+    value: '基于canvas实现',
+    color: 'black',
+    range: [0.2, 0.9]
+}, {
+    value: '因此IE9+浏览器才支持',
+    color: 'black',
+    range: [0.2, 1]
+}...}];
+
+var canvasBarrage = function (canvas, data) {	
+    // 参见页面源代码
+}
+canvasBarrage('#canvasBarrage', dataBarrage);
+            </pre>
+        </div>       
+    </div>
+</div>
+
+<script>
+// 弹幕数据
+var dataBarrage = [{
+	value: '使用的是静态死数据',
+	color: 'blue',
+	range: [0, 0.5]
+}, {
+	value: '随机循环播放',
+	color: 'blue',
+	range: [0, 0.6]
+}, {
+	value: '可以控制区域和垂直分布范围',
+	color: 'blue',
+	range: [0, 0.5]
+}, {
+	value: '字体大小和速度在方法内设置',
+	color: 'black',
+	range: [0.1, 1]
+}, {
+	value: '适合用在一些静态页面上',
+	color: 'black',
+	range: [0.2, 1]
+}, {
+	value: '基于canvas实现',
+	color: 'black',
+	range: [0.2, 0.9]
+}, {
+	value: '因此IE9+浏览器才支持',
+	color: 'black',
+	range: [0.2, 1]
+}, {
+	value: '可以设置边框颜色',
+	color: 'black',
+	range: [0.2, 1]
+}, {
+	value: '文字颜色默认都是白色',
+	color: 'black',
+	range: [0.2, 0.9]
+}, {
+	value: '若文字颜色不想白色',
+	color: 'black',
+	range: [0.2, 1]
+}, {
+	value: '需要自己调整下JS',
+	color: 'black',
+	range: [0.6, 0.7]
+}, {
+	value: '如果需要的是真实和视频交互的弹幕',
+	color: 'black',
+	range: [0.2, 1]
+}, {
+	value: '可以回到原文',
+	color: 'black',
+	range: [0, 0.9]
+}, {
+	value: '查看另外一个demo',
+	color: 'black',
+	range: [0.7, 1]
+}, {
+	value: '下面就是占位弹幕了',
+	color: 'black',
+	range: [0.7, 0.95]
+}, {
+	value: '前方高能预警！！！',
+	color: 'orange',
+	range: [0.5, 0.8]
+}, {
+	value: '前方高能预警！！！',
+	color: 'orange',
+	range: [0.5, 0.9]
+}, {
+	value: '前方高能预警！！！',
+	color: 'orange',
+	range: [0, 1]
+}, {
+	value: '前方高能预警！！！',
+	color: 'orange',
+	range: [0, 1]
+}];
+
+// 弹幕方法
+var canvasBarrage = function (canvas, data) {	
+	if (!canvas || !data || !data.length) {
+		return;
+	}
+	if (typeof canvas == 'string') {
+		canvas = document.querySelector(canvas);
+		canvasBarrage(canvas, data);
+		return;
+	}
+	var context = canvas.getContext('2d');
+	canvas.width = canvas.clientWidth;
+	canvas.height = canvas.clientHeight;
+
+	// 存储实例
+	var store = {};
+
+	// 字号大小
+	var fontSize = 28;
+
+	// 实例方法
+	var Barrage = function (obj, index) {
+		// 随机x坐标也就是横坐标，对于y纵坐标，以及变化量moveX
+		this.x = (1 + index * 0.1 / Math.random()) * canvas.width;
+		this.y = obj.range[0] * canvas.height + (obj.range[1] - obj.range[0]) * canvas.height * Math.random() + 36;
+		if (this.y < fontSize) {
+			this.y = fontSize;
+		} else if (this.y > canvas.height - fontSize) {
+			this.y = canvas.height - fontSize;
+		}
+		this.moveX = 1 + Math.random() * 3;
+
+		this.opacity = 0.8 + 0.2 * Math.random();
+		this.params = obj;
+		
+		this.draw = function () {
+			var params = this.params;
+			// 根据此时x位置绘制文本
+			context.strokeStyle = params.color;
+			context.font = 'bold ' + fontSize + 'px "microsoft yahei", sans-serif';
+			context.fillStyle = 'rgba(255,255,255,'+ this.opacity +')';
+			context.fillText(params.value, this.x, this.y);
+			context.strokeText(params.value, this.x, this.y);
+		};
+	};
+
+	data.forEach(function (obj, index) {
+		store[index] = new Barrage(obj, index);
+	});
+
+	// 绘制弹幕文本
+	var draw = function () {
+		for (var index in store) {
+			var barrage = store[index];
+			// 位置变化
+			barrage.x -= barrage.moveX;
+			if (barrage.x < -1 * canvas.width * 1.5) {
+				// 移动到画布外部时候从左侧开始继续位移
+				barrage.x = (1 + index * 0.1 / Math.random()) * canvas.width;
+				barrage.y = (barrage.params.range[0] + (barrage.params.range[1] - barrage.params.range[0]) * Math.random()) * canvas.height;
+				if (barrage.y < fontSize) {
+					barrage.y = fontSize;
+				} else if (barrage.y > canvas.height - fontSize) {
+					barrage.y = canvas.height - fontSize;
+				}
+				barrage.moveX = 1 + Math.random() * 3;
+			}
+			// 根据新位置绘制圆圈圈
+			store[index].draw();
+		}
+	};
+
+	// 画布渲染
+	var render = function () {
+		// 清除画布
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		
+		// 绘制画布上所有的圆圈圈
+		draw();
+
+		// 继续渲染
+		requestAnimationFrame(render);
+	};
+
+	render();
+};
+
+canvasBarrage('#canvasBarrage', dataBarrage);
+</script>
+<!-- 以下脚本是无关紧要 -->
+<script type="text/javascript" src="../js/hl_all.js"></script>
+<script type="text/javascript">
+	DlHighlight.HELPERS.highlightByName("code", "pre");
+</script>
+<div id="footer">
+    Designed &amp; Powerd by <a href="/">zhangxinxu</a><br />
+    Copyright© 张鑫旭-鑫空间-鑫生活<br>
+    <a href="http://www.miibeian.gov.cn/" target="_blank">鄂ICP备09015569号</a>      
+</div>
+<div id="ad">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90, 大型横幅广告 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0090627341039040"
+     data-ad-slot="4686885989"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-11205167-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script');
+		 ga.type = 'text/javascript';
+		 ga.async = true;
+		ga.src = 'http://www.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</div>
+</body>
+</html>

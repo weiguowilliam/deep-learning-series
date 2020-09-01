@@ -1,0 +1,92 @@
+div.jumbotron{
+    text-align: center;
+    background:none;
+}
+
+
+.sectionLight{
+    background-color: #eceeef;
+    padding: 10px;
+
+}
+
+.sectionDark{
+    background-color:#cccccc;
+    padding: 10px;
+}
+
+.coolStuff{
+    margin-top: 20px;
+}
+
+button.coolStuff-btn{
+    color:#ffffff;
+    display:block;
+    margin: auto;
+    background-color: dodgerblue;
+}
+
+.modal-title{
+    margin:auto;
+    text-align: center;
+}
+
+.modalFormWrapper{
+    margin: auto;
+    display: block;
+}
+
+img.img-center{
+		display: block;
+		margin: auto;
+}
+
+button.btn-center{
+		display: block;
+		margin: auto;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		width: 70%;
+}
+
+p.video-p{
+		display: block;
+		margin: auto;
+}
+
+img.pika-img{
+		width:60%;
+		padding: 10px;
+}
+
+.fa{
+		margin:10px;
+}
+
+i.fa-github{
+		color:#4078c0;
+}
+
+i.fa-weixin{
+		color:#7bb32e;
+}
+
+i.fa-linkedin{
+		color:#0077b5;
+}
+
+.social-wrapper{
+		display: block;
+		margin: auto;
+}
+
+.fa-heart{
+		color:#fff;
+}
+
+.create{
+		color:aliceblue;
+		display: block;
+		margin: auto;
+		text-align: center;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+<style>
+.video-class{
+  display: block;
+  margin: auto;
+  width: 500px;
+  height: 400px;
+}
+.canvas-class{
+  position: absolute;
+  display: block;
+  margin: auto;
+  width: 500px;
+}
+
+
+</style>
+</head>
+<body>
+  <h1 style="text-align: center">Static Barrage Test</h1>
+  <div class="container">
+    <div class="video-class">
+      <canvas id="myCanvas" class="canvas-class"></canvas>
+      <video  controls autoplay style="width: 500px">
+        <source src="http://www.w3school.com.cn/i/movie.mp4" type="video/mp4" >
+        <source src="http://www.w3school.com.cn/i/movie.ogg" type="video/ogg" />
+      </video>
+    </div>
+  </div>
+
+  <script >
+    var dataBarrage = [{
+      value: "barrage test 1",
+      color: "blue"
+    },{
+      value: "barrage test 2",
+      color: "blue"
+    }];
+
+    var CanvasBarrage = function(canvas, data){
+
+      if (typeof canvas == 'string') {
+    		canvas = document.querySelector(canvas);
+    		CanvasBarrage(canvas, data);
+    		return;
+    	}
+
+      //var context = canvas.getContext("2d");
+      var context = canvas.getContext('2d');
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+      var store = {};
+      var fontsize = 28;
+
+      var Barrage = function(obj, index){
+        //this.x = (1+index) * canvas.width;
+        this.x = canvas.width;
+        this.y = canvas.height * Math.random() + 50;
+        this.move = 1 + Math.random() * 3;
+        //this.opacity = 0.5;
+        this.params = obj; // one obj is one data = one barrage
+
+        //write the text
+        this.write = function(){
+          var params = this.params;
+          context.strokeStyle = params.color;
+          //context.font = fontsize+'px';
+          context.font = fontsize + 'px sans-serif';
+          //context.fillStyle = 'rgba(255,255,255,'+ this.opacity +')';
+          context.fillText(params.value,this.x,this.y);
+          context.strokeText(params.value,this.x,this.y);
+        };
+      };
+
+      data.forEach(function(obj, index){
+        store[index] = new Barrage(obj,index);
+      });
+
+      //draw the Barrage
+      var draw = function(){
+        for (var key in store){
+          var barrage = store[key];
+
+          barrage.x -= barrage.move;
+
+          if (barrage.x< -1*canvas.width * 1.5){
+            barrage.x = canvas.width;
+            barrage.y = canvas.height * Math.random() + 50;
+            barrage.move = 1 + Math.random() * 3;
+          }
+
+          store[key].write();
+        }
+      };
+
+      //work on canvas
+      var render = function(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        draw();
+        requestAnimationFrame(render);
+      };
+
+      render();
+    };
+
+    //CanvasBarrage('#myCanvas',dataBarrage);
+      CanvasBarrage('canvas',dataBarrage);
+    // 这两句等效，因为如果输入#mycanvas 判断typeof是string,会用querySelector取第一个#mycanvas，即是canvas元素
+  </script>
+</body>
+<!--
+//*****the first version******//
+
+//add if in the begin
+//change draw function loop use index
+//store[index] = new Barrage
+
+ -->
+
+ <!--
+  //*******second version*******//
+  //*** make canvas and video overlap ****//
+  set position: absolute to the inner div(canvas here)
+  // make barrage run loop(instead of only one time)
+  add if control in draw() function to 判断是否跑到最左边，跑到
+  最左边则复原x,y的初始位置
+ -->
+
+
+<!--
+  //****third version******//
+  //make different barrages have different y value
+  add Math.random() in y value
+  //set font size
+ -->

@@ -1,0 +1,22 @@
+
+ul li{
+    color:red;
+}
+
+ol li{
+    color:green;
+}
+
+div div h2{
+    color:skyblue;
+}
+
+div h2{
+    color:purple;
+}
+
+h1,h3,h4,p{
+    color:blue;
+}
+
+h3{color:deeppink;}
